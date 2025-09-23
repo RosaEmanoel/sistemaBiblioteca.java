@@ -3,13 +3,12 @@ public class livroFisico extends livro {
         super(titulo, autor, anoPublicacao, numeroPaginas);
     }
 
-    @Override
     public String getFormato() {
         return "Físico";
     }
 
-    @Override
     public String toString() {
         return "[Físico] " + super.toString();
     }
 }
+
