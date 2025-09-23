@@ -21,16 +21,16 @@ public abstract class livro {
     public void setAnoPublicacao(int anoPublicacao) { this.anoPublicacao = anoPublicacao; }
     public void setNumeroPaginas(int numeroPaginas) { this.numeroPaginas = numeroPaginas; }
 
-    // ---------- MÉTODO ABSTRATO ----------
+
     public abstract String getFormato();
 
-    // ---------- MÉTODO FINAL ----------
+    
     public final int calcularTempoPublicacao() {
         return java.time.LocalDate.now().getYear() - anoPublicacao;
     }
 
-    @Override
     public String toString() {
         return String.format("%s (%d) - %s, %d páginas", titulo, anoPublicacao, autor, numeroPaginas);
     }
 }
+
