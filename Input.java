@@ -8,7 +8,7 @@ public class Input {
             scan.next();
         }
         int value = scan.nextInt();
-        scan.nextLine(); // limpar buffer após scanInt
+        scan.nextLine();
         return value;
     }
 
@@ -22,3 +22,4 @@ public class Input {
         return value.trim();
     }
 }
+
