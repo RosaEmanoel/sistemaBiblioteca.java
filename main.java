@@ -35,11 +35,13 @@ public class main {
                 case 7 -> pesquisarPorAno();
                 case 8 -> {
                     livro antigo = biblioteca.livroMaisAntigo();
-                    System.out.println(antigo != null ? "Mais antigo: " + antigo + " | Formato: " + antigo.getFormato() : "Acervo vazio");
+                    System.out.println(antigo != null ? "Mais antigo: " + antigo + " | Formato: " + antigo.getFormato()
+                            : "Acervo vazio");
                 }
                 case 9 -> {
                     livro novo = biblioteca.livroMaisNovo();
-                    System.out.println(novo != null ? "Mais novo: " + novo + " | Formato: " + novo.getFormato() : "Acervo vazio");
+                    System.out.println(
+                            novo != null ? "Mais novo: " + novo + " | Formato: " + novo.getFormato() : "Acervo vazio");
                 }
                 case 0 -> System.out.println("Volte Sempre!!!");
                 default -> System.out.println("Opção Inválida!");
@@ -58,10 +60,14 @@ public class main {
         int numeroPaginas = Input.scanInt("Digite o número de páginas: ", scan);
 
         livro livro = null;
-        if (tipo == 1) {
+        if (tipo == 1) { // livro físico
+            String dimensoes = Input.scanString("Digite as dimensões (cm) (ex: 32x35): ", scan);
+            int numeroExemplares = Input.scanInt("Digite o número de exemplares: ", scan);
             livro = new livroFisico(titulo, autor, anoPublicacao, numeroPaginas);
-        } else if (tipo == 2) {
-            livro = new livroDigital(titulo, autor, anoPublicacao, numeroPaginas);
+        } else if (tipo == 2) { // livro digital
+            String formatoArquivo = Input.scanString("Digite o formato do arquivo: ", scan);
+            double tamanhoArquivo = Input.scanInt("Digite o tamanho do arquivo (MB): ", scan);
+            livro = new livroDigital(titulo, autor, anoPublicacao, numeroPaginas, formatoArquivo, tamanhoArquivo);
         }
 
         if (livro != null) {
@@ -122,12 +128,17 @@ public class main {
             String autor = Input.scanString("Novo Autor: ", scan);
             int anoPublicacao = Input.scanInt("Novo Ano de Publicação: ", scan);
             int numeroPaginas = Input.scanInt("Novo Número de Páginas: ", scan);
+            String dimensoes = Input.scanString("Digite as dimensões (cm) (ex: 32x35): ", scan);
+            int numeroExemplares = Input.scanInt("Digite o número de exemplares: ", scan);
+            String formatoArquivo = Input.scanString("Digite o formato do arquivo: ", scan);
+            double tamanhoArquivo = Input.scanInt("Digite o tamanho do arquivo (MB): ", scan);
 
             livro atualizado;
             if (antigo instanceof livroFisico) {
                 atualizado = new livroFisico(titulo, autor, anoPublicacao, numeroPaginas);
             } else {
-                atualizado = new livroDigital(titulo, autor, anoPublicacao, numeroPaginas);
+                atualizado = new livroDigital(titulo, autor, anoPublicacao, numeroPaginas, formatoArquivo,
+                        tamanhoArquivo);
             }
 
             try {
