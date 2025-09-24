@@ -63,7 +63,7 @@ public class main {
         if (tipo == 1) { // livro físico
             String dimensoes = Input.scanString("Digite as dimensões (cm) (ex: 32x35): ", scan);
             int numeroExemplares = Input.scanInt("Digite o número de exemplares: ", scan);
-            livro = new livroFisico(titulo, autor, anoPublicacao, numeroPaginas);
+            livro = new livroFisico(titulo, autor, anoPublicacao, numeroPaginas,numeroExemplares, dimensoes);
         } else if (tipo == 2) { // livro digital
             String formatoArquivo = Input.scanString("Digite o formato do arquivo: ", scan);
             double tamanhoArquivo = Input.scanInt("Digite o tamanho do arquivo (MB): ", scan);
